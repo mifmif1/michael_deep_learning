@@ -2,7 +2,6 @@ from enum import Enum
 
 
 class Activations(Enum):
-    RELU: 'RELU'
-    TANH: 'TANH'
-    SIGMOID: 'SIGMOID'
-
+    RELU = 'RELU'
+    TANH = 'TANH'
+    SIGMOID = 'SIGMOID'

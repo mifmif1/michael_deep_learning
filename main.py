@@ -1,16 +1,10 @@
-# This is a sample Python script.
+import numpy as np
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from model.smalls.initializations import Initializations
+from model.weight.weight_model import WeightsLayer
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    initial = np.array([1, 2, 3, 4, 5])
+    w1 = WeightsLayer(previous_layer_A=initial, next_length=4, initialization=Initializations.RANDOM)
+    w2 = WeightsLayer(previous_layer_A=w1.A, next_length=2, initialization=Initializations.RANDOM)
+    print(w2.A)
