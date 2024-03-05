@@ -15,10 +15,28 @@ class Layer:
         self._previous_length = previous_length
         self._activation = activation
         self._initialization = initialization
-        self._weights = Weights(previous_length=previous_length, next_length=layer_length,initialization=initialization)
+        self._weights = Weights(previous_length=previous_length, next_length=layer_length,
+                                initialization=initialization)
         self._bias = Bias(next_length=layer_length, initialization=initialization)
+        self._A: np.array
 
-    def activate(self, previous_layer_A: np.array):
+    @property
+    def A(self):
+        return self._A
+
+    @property
+    def weights(self):
+        return self._weights
+
+    @property
+    def bias(self):
+        return self._bias
+
+    @property
+    def activation(self):
+        return self._activation
+
+    def activate(self, ):
         A = np.add(np.matmul(self._weights.values, previous_layer_A), self._bias.values)
         match self._activation:
             case Activations.RELU:
@@ -28,5 +46,3 @@ class Layer:
             case Activations.SIGMOID:
                 self._A = (1 / (1 + np.exp(-A)))
         return self._A
-
-
