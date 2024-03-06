@@ -11,4 +11,6 @@ def activate(array: np.ndarray, activation: Activations) -> np.ndarray:
             array = np.tanh(array)
         case Activations.SIGMOID:
             array = (1 / (1 + np.exp(-array)))
+        case Activations.SOFTMAX:
+            array = np.exp(array)/np.sum(np.exp(array))
     return array
