@@ -19,7 +19,7 @@ class Network:
 
     def forward_propagation(self) -> np.ndarray:
         if len(self._layers) == 1:
-            A = np.add(np.matmul(self._layers[0].weights.values, self._data), self._layers[0].bias.values)
+            A = np.add(np.matmul(self._data, self._layers[0].weights.values), self._layers[0].bias.values)
             return activate(A, self._layers[0].activation)
         return activate(
             np.add(np.matmul(Network(data=self._data, layers=self._layers[:-1]).forward_propagation(),
