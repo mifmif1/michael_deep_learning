@@ -8,4 +8,4 @@ class Bias(WeightBaseModel):
     def __init__(self,
                  next_length: int = 10,
                  initialization: Initializations = Initializations.ZEROS):
-        WeightBaseModel.__init__(next_length=next_length, columns=1, initialization=initialization)
+        super().__init__(next_length=next_length, columns=1, initialization=initialization)
