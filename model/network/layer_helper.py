@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from model.smalls.activations import Activations
+from model.activations import Activations
 from model.smalls.initializations import Initializations
 
 

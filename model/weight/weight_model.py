@@ -1,6 +1,3 @@
-import numpy as np
-
-from model.smalls.activations import Activations
 from model.smalls.initializations import Initializations
 from model.weight.weights_base_model import WeightBaseModel
 

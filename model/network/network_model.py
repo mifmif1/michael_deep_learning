@@ -30,9 +30,13 @@ class Network:
         assert len(self._layers) >= 1, "you must define layers before forward propagation"
         if len(self._layers) == 1:
             A = np.add(np.matmul(self._data, self._layers[0].weights.values), self._layers[0].bias.values)
+            print(f"{self._layers[-1].layer_length}")
+            print(activate(A, self._layers[0].activation))
             return activate(A, self._layers[0].activation)
         A = np.add(np.matmul(Network(data=self._data, layers=self._layers[:-1]).forward_propagation(),
                              self._layers[-1].weights.values), self._layers[-1].bias.values)
+        print(f"{self._layers[-1].layer_length}")
+        print(activate(A, self._layers[-1].activation))
         return activate(A, self._layers[-1].activation)
 
     def back_propagation(self):
