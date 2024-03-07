@@ -4,7 +4,6 @@ import numpy as np
 
 from model.layer.layer_model import Layer
 from model.network.layer_helper import LayerNetworkInfo
-from model.smalls.helpers import activate
 
 
 class Network:
@@ -31,13 +30,13 @@ class Network:
         if len(self._layers) == 1:
             A = np.add(np.matmul(self._data, self._layers[0].weights.values), self._layers[0].bias.values)
             print(f"{self._layers[-1].layer_length}")
-            print(activate(A, self._layers[0].activation))
-            return activate(A, self._layers[0].activation)
+            print(self._layers[0].activation.activate(A))
+            return self._layers[0].activation.activate(A)
         A = np.add(np.matmul(Network(data=self._data, layers=self._layers[:-1]).forward_propagation(),
                              self._layers[-1].weights.values), self._layers[-1].bias.values)
         print(f"{self._layers[-1].layer_length}")
-        print(activate(A, self._layers[-1].activation))
-        return activate(A, self._layers[-1].activation)
+        print(self._layers[-1].activation.activate(A))
+        return self._layers[-1].activation.activate(A)
 
     def back_propagation(self):
         pass

@@ -1,8 +1,8 @@
 import numpy as np
 
+from model.activations.activations_enum import Activations
 from model.network.layer_helper import LayerNetworkInfo
 from model.network.network_model import Network
-from model.activations import Activations
 from model.smalls.initializations import Initializations
 
 

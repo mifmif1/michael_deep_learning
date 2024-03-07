@@ -1,6 +1,6 @@
 import numpy as np
 
-from model.activations import Activations
+from model.activations.activations_enum import Activations
 from model.smalls.initializations import Initializations
 from model.weight.bias_model import Bias
 from model.weight.weight_model import Weights
