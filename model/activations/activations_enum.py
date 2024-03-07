@@ -10,7 +10,11 @@ from model.activations.tanh import Tanh
 
 
 class Activations(Activation, Enum):
-    RELU: Activation = Relu
-    TANH: Activation = Tanh
-    SIGMOID: Activation = Sigmoid
-    SOFTMAX: Activation = Softmax
+    RELU = Relu()
+    TANH = Tanh()
+    SIGMOID = Sigmoid()
+    SOFTMAX = Softmax()
+
+
+activ1 = Relu().activate(array=np.array([11, -11]))  # output: in relu
+activ2 = Activations.RELU.activate(array=np.array([11, -11]))  # output: in activation

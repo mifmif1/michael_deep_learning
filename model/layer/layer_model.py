@@ -8,16 +8,16 @@ from model.weight.weight_model import Weights
 
 class Layer:
     def __init__(self,
-                 previous_length: int,
-                 layer_length: int,
+                 previous_layer_neurons_num: int,
+                 neurons_num: int,
                  activation: Activations = Activations.RELU,
                  initialization: Initializations = Initializations.ZEROS):
-        self._previous_length = previous_length
-        self._layer_length = layer_length
+        self._previous_layer_neurons_num = previous_layer_neurons_num
+        self._neurons_num = neurons_num
         self._activation = activation
-        self._weights = Weights(previous_neurons_num=previous_length, next_neurons_num=layer_length,
+        self._weights = Weights(previous_neurons_num=previous_layer_neurons_num, next_neurons_num=neurons_num,
                                 initialization=initialization)
-        self._bias = Bias(next_neurons_num=layer_length, initialization=initialization)
+        self._bias = Bias(next_neurons_num=neurons_num, initialization=initialization)
         self._A: np.array
 
     @property
@@ -38,4 +38,4 @@ class Layer:
 
     @property
     def layer_length(self):
-        return self._layer_length
+        return self._neurons_num
