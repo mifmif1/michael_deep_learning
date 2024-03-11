@@ -14,7 +14,3 @@ class Activations(Activation, Enum):
     TANH = Tanh()
     SIGMOID = Sigmoid()
     SOFTMAX = Softmax()
-
-
-activ1 = Relu().activate(array=np.array([11, -11]))  # output: in relu
-activ2 = Activations.RELU.activate(array=np.array([11, -11]))  # output: in activation

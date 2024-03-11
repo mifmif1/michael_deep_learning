@@ -34,7 +34,7 @@ class Layer:
 
     @property
     def activation(self):
-        return self._activation
+        return self._activation.value
 
     @property
     def layer_length(self):
