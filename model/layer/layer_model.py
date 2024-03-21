@@ -23,6 +23,7 @@ class Layer:
 
     @property
     def Z(self):
+        # TODO: add the separation between Z and A also in forward propagation
         return self._Z
 
     @property
