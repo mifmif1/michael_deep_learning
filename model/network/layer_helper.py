@@ -6,5 +6,5 @@ from model.smalls.initializations import Initializations
 
 class LayerNetworkInfo(BaseModel):
     layer_length: int
-    activation: Activations = Activations.RELU
+    activation: Activations = Activations.RELU.value
     initialization: Initializations = Initializations.ZEROS
