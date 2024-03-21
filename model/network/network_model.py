@@ -26,13 +26,19 @@ class Network:
         self._layers.append(layer)
 
     def forward_propagation(self) -> np.ndarray:
-        assert len(self._layers) >= 1, "you must define layers before forward propagation"
+        assert len(self._layers) >= 1, "You must define layers before forward propagation"
         if len(self._layers) == 1:
             A = np.add(np.matmul(self._data, self._layers[0].weights.values), self._layers[0].bias.values)
-            return self._layers[0].activation.activate(A)
+            self._layers[0].A = self._layers[0].activation.activate(A)
+            return self._layers[0].A
         A = np.add(np.matmul(Network(data=self._data, layers=self._layers[:-1]).forward_propagation(),
                              self._layers[-1].weights.values), self._layers[-1].bias.values)
         return self._layers[-1].activation.activate(A)
+
+
+    def cost(self):
+
+
 
     def back_propagation(self):
         pass

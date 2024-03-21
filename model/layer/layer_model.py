@@ -18,7 +18,12 @@ class Layer:
         self._weights = Weights(previous_neurons_num=previous_layer_neurons_num, next_neurons_num=neurons_num,
                                 initialization=initialization)
         self._bias = Bias(next_neurons_num=neurons_num, initialization=initialization)
-        self._A: np.array
+        self._Z: np.ndarray = np.zeros(neurons_num)
+        self._A: np.ndarray = np.zeros(neurons_num)
+
+    @property
+    def Z(self):
+        return self._Z
 
     @property
     def A(self):
