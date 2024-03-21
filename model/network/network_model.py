@@ -2,6 +2,7 @@ from typing import List
 
 import numpy as np
 
+from model.costs.costs_enum import Costs
 from model.layer.layer_model import Layer
 from model.network.layer_helper import LayerNetworkInfo
 
@@ -9,8 +10,10 @@ from model.network.layer_helper import LayerNetworkInfo
 class Network:
     def __init__(self,
                  data: np.ndarray,
+                 cost_function: Costs,
                  layers: List[Layer] = None):
         self._data = data
+        self._cost_function = cost_function
         self._layers = layers if layers else []
 
     @property
@@ -37,8 +40,10 @@ class Network:
         self._layers[-1].A = self._layers[-1].activation.activate(self._layers[-1].Z)
         return self._layers[-1].A
 
-    def cost(self):
-        pass
+    def _cost(self, y_hat: np.ndarray):
+        return self._cost_function.value.cost(y=self._layers[-1].A, y_hat=y_hat)
 
-    def back_propagation(self):
+    def back_propagation(self, y_hat: np.ndarray):
+        cost = self._cost(y_hat=y_hat)
+        # todo : comp[lete
         pass
