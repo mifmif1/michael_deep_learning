@@ -43,7 +43,13 @@ class Network:
     def _cost(self, y_hat: np.ndarray):
         return self._cost_function.value.cost(y=self._layers[-1].A, y_hat=y_hat)
 
+    def _cost_derivative(self, y_hat: np.ndarray):
+        return self._cost_function.value.cost_derivative()
+
     def back_propagation(self, y_hat: np.ndarray):
         cost = self._cost(y_hat=y_hat)
-        # todo : comp[lete
+
+
+
+        # todo : complete, by inspiration of by https://github.com/pranavbudhwant/backpropagation-in-numpy/blob/master/implementation.py
         pass

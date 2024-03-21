@@ -11,3 +11,6 @@ class MAE(BaseCost):
         :return: Mean Absolute Error
         """
         return np.mean(np.absolute(y - y_hat))
+
+    def cost_derivative(self, y: np.ndarray, y_hat: np.ndarray):
+        pass

@@ -6,6 +6,14 @@ class BaseCost:
         """
         :param y: shape = (samples, options for y)
         :param y_hat: shape = (samples, options for y)
-        :return: Mean Absolute Error
+        :return
+        """
+        pass
+
+    def cost_derivative(self, y: np.ndarray, y_hat: np.ndarray):
+        """
+        :param y: shape = (samples, options for y)
+        :param y_hat: shape = (samples, options for y)
+        :return
         """
         pass
