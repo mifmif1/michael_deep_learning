@@ -26,9 +26,17 @@ class Layer:
         # TODO: add the separation between Z and A also in forward propagation
         return self._Z
 
+    @Z.setter
+    def Z(self, Z: np.ndarray):
+        self._Z = Z
+
     @property
     def A(self):
         return self._A
+
+    @A.setter
+    def A(self, A: np.ndarray):
+        self._A = A
 
     @property
     def weights(self):
