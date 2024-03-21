@@ -23,5 +23,5 @@ def net_test():
     my_net.add_layer(
         LayerNetworkInfo(layer_length=2, activation=Activations.SOFTMAX, initialization=Initializations.RANDOM))
 
-    Y_hat = my_net.forward_propagation()
-    print(Y_hat)
+    net_outcome = my_net.forward_propagation()
+    print(f"{net_outcome=}\n{np.argmax(net_outcome)=}")

@@ -18,6 +18,6 @@ class Softmax(Activation):
                     jacobian_m[i][j] = -array[i] * array[j]
         return jacobian_m
 
-    def derivative(self):
-        s = self._array.reshape(-1, 1)
+    def derivative(self, array: np.ndarray):
+        s = array.reshape(-1, 1)
         return np.diagflat(s) - np.dot(s, s.T)

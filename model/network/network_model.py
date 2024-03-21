@@ -34,7 +34,8 @@ class Network:
             return self._layers[0].A
         self._layers[-1].Z = np.add(np.matmul(Network(data=self._data, layers=self._layers[:-1]).forward_propagation(),
                                               self._layers[-1].weights.values), self._layers[-1].bias.values)
-        return self._layers[-1].activation.activate(self._layers[-1].Z)
+        self._layers[-1].A = self._layers[-1].activation.activate(self._layers[-1].Z)
+        return self._layers[-1].A
 
     def cost(self):
         pass
